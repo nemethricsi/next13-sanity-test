@@ -20,12 +20,13 @@ export async function generateMetadata({
 const SingleEvent = async ({ params: { eventSlug } }: SingleEventProps) => {
   const event = await getEvent(eventSlug);
 
-  const { title, slug, _id } = event;
+  const { title, slug, _id: id } = event;
 
   return (
-    <main className="p-8">
+    <main className="ms-4 p-8">
       <h1 className="mb-4 text-2xl font-bold">{title}</h1>
-      <pre>{JSON.stringify(event, null, 4)}</pre>
+      <p>{id}</p>
+      <p>{slug}</p>
     </main>
   );
 };
